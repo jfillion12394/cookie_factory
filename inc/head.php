@@ -28,15 +28,24 @@
                 <a class="navbar-brand" href="/">
                     <img class="pull-left" src="assets/img/cookie_funny_clipart.png" alt="The Cookies Factory logo">
                     <h1>The Cookies Factory</h1>
+                    <?php
+                            session_start();
+                            if (isset($_SESSION ["login"]))
+                            {
+                                ?>
+                                <h2>Bienvenue <?=$_SESSION ["login"];?></h2>
+                                <?php
+                            }
+                            ?>
                 </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Chocolates chips</a></li>
-                    <li><a href="#">Nuts</a></li>
-                    <li><a href="#">Gluten full</a></li>
+                    <li><a href="deconnect.php">Deconnexion</a></li>
+                    <li><a href="login.php">S'identifier</a></li>
+                    <li><a href="index.php">Nos produits</a></li>
                     <li>
                         <a href="/cart.php" class="btn btn-warning navbar-btn">
                             <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>

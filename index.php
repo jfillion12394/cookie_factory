@@ -1,5 +1,21 @@
 <?php require 'inc/data/products.php'; ?>
-<?php require 'inc/head.php'; ?>
+<?php require 'inc/head.php';
+
+if (isset($_GET["add_to_cart"]))
+{
+ $getId = $_GET["add_to_cart"];
+
+//récupérer le nom du cookie choisi
+ foreach ($catalog as $id => $cookie)
+  {
+            if ($getId == $id)
+              {
+                  $_SESSION ["ID_".$id] = $cookie['name'];
+              }
+    
+  }
+}
+?>
 <section class="cookies container-fluid">
     <div class="row">
         <?php foreach ($catalog as $id => $cookie) { ?>

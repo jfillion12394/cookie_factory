@@ -1,4 +1,19 @@
-<?php require 'inc/head.php'; ?>
+<?php require 'inc/head.php'; 
+
+//si déjà connecté, on quitte la page
+if (isset($_SESSION ["login"]))
+{
+    header('location:index.php');
+}
+
+//saisir un identifiant de connexion (différent de vide si possible!)
+if (isset($_POST["loginname"]) && rtrim(ltrim($_POST["loginname"]))<>"")
+{
+    session_start();
+    $_SESSION ["login"] = rtrim(ltrim($_POST["loginname"]));
+    header('location:index.php');
+}
+?>
 <div class="container" style="margin-top:40px">
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
